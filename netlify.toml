@@ -1,6 +1,6 @@
 [build]
 publish = "public"
-command = "git submodule update --remote --merge && hugo --theme=Blonde --gc --minify"
+command = "hugo --gc --minify"
 
 [context.production.environment]
 HUGO_VERSION = "0.83.1"
