@@ -1,4 +1,4 @@
-baseURL = "https://www.staticsiteguru.com"
+baseURL = "https://www.staticsiteguru.com/"
 title = "Static Site Guru"
 author = "Sean Emerson"
 languageCode = "en"
