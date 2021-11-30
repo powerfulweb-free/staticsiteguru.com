@@ -123,7 +123,7 @@ archive = "archives"
   writeStats = true
 
 [module]
-  replacements = 'github.com/future-wd-fork/Blonde -> blonde-fork'
+  
 [module.imports]
   path = 'github.com/future-wd-fork/Blonde'
 
