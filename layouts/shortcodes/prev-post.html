@@ -1,0 +1,3 @@
+{{ with .PrevPage }}
+<a href="{{ .Permalink }}?ref=sequential">{{ .Title | truncate 50 "..."}}</a>
+{{ end }}

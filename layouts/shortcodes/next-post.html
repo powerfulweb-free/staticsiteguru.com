@@ -1,0 +1,3 @@
+{{ with .NextPage }}
+<a href="{{ .Permalink }}">{{ .Title | truncate 50 "..." }}</a>
+{{ end }}
