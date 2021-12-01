@@ -27,3 +27,4 @@ node_modules
 .hugo_build.lock
 
 blonde-fork/
+/themes/blonde-fork
