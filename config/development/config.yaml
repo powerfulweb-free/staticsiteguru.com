@@ -1,2 +1,2 @@
-modules:
+module:
   replacements: 'github.com/future-wd-fork/Blonde -> blonde-fork'

@@ -37,6 +37,9 @@ tagsLimit = 20
 # Light mode by default : light
 darkmode = "dark"
 
+# Date format
+date_format = "02/01/2006"
+
   [params.post]
     # Show thumbnails
     thumbnail = true
