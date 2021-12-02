@@ -53,6 +53,6 @@ By now everything should be working well, unless the module hasn't been versione
 
 Futher reading...
 
-https://gohugo.io/hugo-modules/configuration/
+<https://gohugo.io/hugo-modules/configuration/>
 
-https://gohugo.io/hugo-modules/use-modules/
+<https://gohugo.io/hugo-modules/use-modules/>

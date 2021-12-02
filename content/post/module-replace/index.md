@@ -56,6 +56,6 @@ Happy coding
 
 Further reading
 
-https://gohugo.io/hugo-modules/configuration/
+<https://gohugo.io/hugo-modules/configuration/>
 
-https://gohugo.io/getting-started/configuration/#configuration-directory
+<https://gohugo.io/getting-started/configuration/#configuration-directory>
