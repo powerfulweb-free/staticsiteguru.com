@@ -3,9 +3,9 @@ author: "Sean Emerson"
 title: Hugo Module replacements
 lead:
 draft: true
-date: 2021-11-14
+date: 2021-12-02
 description: ""
-images: []
+images: [7904.png]
 categories: ["Hugo Modules", "Hugo Themes"]
 tags: ["config", "modules", "Themes"]
 archives: [2021/11]
@@ -22,7 +22,8 @@ The format is as follows
 # config.yaml
 module:
   # replacement dir is relative to the theme folder
-  replacements: github.com/user/repo -> ../../repo
+  # this example is a project which sits along side the current project
+  replacements: github.com/user/repo -> ../../project
   # import your repo here
   imports: github.com/user/repo
 ```
@@ -44,7 +45,7 @@ module:
 # environment (when your running hugo server)
 module:
   # replacement dir is relative to the theme folder
-  replacements: github.com/user/repo -> ../../repo
+  replacements: github.com/user/repo -> ../../project
 ```
 
 Remember to initialise your base project with `hugo mod init github.com/user/baseproject`, `hugo mod tidy`.  

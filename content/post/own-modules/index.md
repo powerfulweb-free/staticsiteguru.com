@@ -3,9 +3,9 @@ author: "Sean Emerson"
 title: Creating Your Own Hugo Modules
 lead: Creating your own modules is a great way to avoid code duplication and make updating code easy.
 draft: true
-date: 2021-12-1
+date: 2021-12-01
 description: ""
-images: []
+images: [blocks.jpg]
 categories: ["Hugo Modules", "Hugo Themes"]
 tags: ["config", "modules", "Themes"]
 archives: [2021/12]
@@ -64,4 +64,4 @@ Run `Hugo mod get -u` to update dependencies if they have changed.
 
 ## Replace your module with a local version for development
 
-See my next post on module replacements {{< next-page >}}.
+See my next post {{< next-page >}}.

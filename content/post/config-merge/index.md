@@ -2,7 +2,7 @@
 author: "Sean Emerson"
 title: "Module configuration merging in Hugo v0.84.0"
 draft: false
-date: 2021-11-1
+date: 2021-11-17
 description: ""
 images: [hugo.png]
 categories: ["Hugo Modules", "Hugo Themes"]
@@ -50,7 +50,7 @@ params:
     red: "#FF3344"
 ```
 
-Now you only need to copy and paste and modify the param that you wish to override e.g. 
+Now you only need to copy and paste and modify the param that you wish to override e.g.
 
 ```YAML
 # /config.yaml
@@ -61,7 +61,7 @@ params:
 
 Much easier, and brings hugo in line with other languages!
 
-Even better, you can now use the config directory. If you use the config directory for your website, you can then copy and paste the params directly across before you override the params. 
+Even better, you can now use the config directory. If you use the config directory for your website, you can then copy and paste the params directly across before you override the params.
 
 e.g.
 
