@@ -2,7 +2,7 @@
 author: "Sean Emerson"
 title: Getting started with Hugo Modules
 lead: Hugo modules will save you from replicating code, and help you manage dependencies across project much easier. 
-draft: true
+draft: false
 date: 2021-11-01
 description: ""
 images: [hugo056.png]

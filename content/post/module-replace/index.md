@@ -2,7 +2,7 @@
 author: "Sean Emerson"
 title: Hugo Module replacements
 lead:
-draft: true
+draft: false
 date: 2021-12-02
 description: ""
 images: [7904.png]

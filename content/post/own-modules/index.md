@@ -2,7 +2,7 @@
 author: "Sean Emerson"
 title: Creating Your Own Hugo Modules
 lead: Creating your own modules is a great way to avoid code duplication and make updating code easy.
-draft: true
+draft: false
 date: 2021-12-01
 description: ""
 images: [blocks.jpg]
