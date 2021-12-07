@@ -6,7 +6,7 @@ draft: false
 date: 2021-11-01
 description: ""
 images: [hugo056.png]
-categories: ["Hugo Modules", "Hugo Themes"]
+categories: ["Hugo-Modules", "Hugo-Themes"]
 tags: ["config", "modules", "Themes"]
 archives: [2021/11]
 ---

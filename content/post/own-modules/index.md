@@ -6,7 +6,7 @@ draft: false
 date: 2021-12-01
 description: ""
 images: [blocks.jpg]
-categories: ["Hugo Modules", "Hugo Themes"]
+categories: ["Hugo-Modules", "Hugo-Themes"]
 tags: ["config", "modules", "Themes"]
 archives: [2021/12]
 ---
