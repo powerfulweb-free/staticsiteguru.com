@@ -13,12 +13,14 @@ archives: [2021/12]
 As of Hugo v0.90.1 you can now fetch a remote resource and process it with Hugo Pipes just like it was a local resource.
 
 To fetch a local resource (in the assets folder) you would run the following code:
+
 ```HTML
 <!-- fetch /assets/scss/main.scss -->
 {{ $local := resources.Get "sass/main.scss" }}
 ```
 
 Now you can fetch a file from a remote server, and still run it through Hugo Pipes like this:
+
 ```HTML
 {{ $remote := resources.Get "https://www.example.com/styles.scss" }}
 {{ $css := $remote | toCSS | postCSS | fingerprint }}

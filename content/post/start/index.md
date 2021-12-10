@@ -12,7 +12,7 @@ categories: ["hugo-basics"]
 tags: ["Getting-Started"]
 archives: [2021/12]
 ---
-The hardest part of getting started with Hugo is finding a theme which is simple and non-opinionated so that you can learn the ropes. 
+The hardest part of getting started with Hugo is finding a theme which is simple and non-opinionated so that you can learn the ropes.
 
 In this post I will be detailing how you can start the process of creating your own stater template. You will need to have Hugo installed locally for this tutorial.
 
@@ -49,7 +49,7 @@ While all of the directories that have been created are empty (except for archet
 
 We won't be creating a theme, but we will create one temporarily so that we can use the boilerplate content structure - and then improve on it.
 
-Go ahead and run 
+Go ahead and run
 
 ```console
 hugo new theme temp
