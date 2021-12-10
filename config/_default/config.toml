@@ -7,6 +7,8 @@ enableInlineShortcodes = true
 #theme = "blonde"
 enableRobotsTXT = true
 
+
+
 # Please enable this feature if the site is available in Japanese, Chinese or Korean.
 #hasCJKLanguage = true
 
@@ -15,6 +17,11 @@ enableRobotsTXT = true
 
 # Disqus Comment System
 disqusShortname = "staticsiteguru"
+
+[markup]
+  [markup.highlight]
+    # noClasses = false
+    tabWidth = 2
 
 [params]
 # Base color of the website.
