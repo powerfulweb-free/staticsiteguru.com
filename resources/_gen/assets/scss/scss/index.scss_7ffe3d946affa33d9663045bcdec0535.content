@@ -7743,4 +7743,32 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important; } }
 
+.panel {
+  background-color: #000;
+  padding: 0 1rem 1rem 1rem;
+  margin-bottom: 1rem; }
+  .panel__heading {
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 1rem;
+    font-size: 1.5rem; }
+  .panel__block {
+    position: relative;
+    padding: 0.5rem 1rem;
+    text-align: center; }
+    .panel__block:hover {
+      background-color: #1e2022; }
+    .panel__block a {
+      text-decoration: none;
+      color: #f8f9fa; }
+      .panel__block a::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        content: ""; }
+
 /*# sourceMappingURL=index.css.map */

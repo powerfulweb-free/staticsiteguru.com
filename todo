@@ -5,6 +5,9 @@ add post css
 fix current menu item, and background color to gray-800
 theme color switcher?
 
+archives: hover on item block, bg-dark
+
 scss variables:
 make inputs square
 search field background black, and the rest too?
+block hover colour variable
