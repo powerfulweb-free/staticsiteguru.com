@@ -6,9 +6,9 @@
   <div class="">
     {{ range $relatedPosts }}
     <a href="{{ .RelPermalink }}" class="panel__link">
-      <div class="">
+      <div class="panel__block panel__block--recent">
         <h4 class="summary__heading summary__heading--panel">{{.Title}}</h4>
-        <p class="summary__text">
+        <p class="summary__date">
           <time>{{.Date.Format "02/01/2006"}}</time>
         </p>
       </div>
