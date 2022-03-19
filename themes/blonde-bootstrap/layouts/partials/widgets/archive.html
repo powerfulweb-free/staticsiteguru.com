@@ -1,24 +1,23 @@
 <div class="panel">
-    <h3 class="panel__heading">Archives</h3>
-    {{ if eq .Site.Params.archive_dropdown "false" }}
-    {{ range $name, $items := .Site.Taxonomies.archives }}
+  <h3 class="panel__heading">Archives</h3>
+  {{ if eq .Site.Params.archive_dropdown "false" }}
+  {{ range .Site.Taxonomies.archives }}
+  <a class="panel__link" href="{{ .Page.RelPermalink }}">
     <div class="panel__block">
-      <a class="panel__link stretched-link"
-        href="{{ $.Site.BaseURL }}/archives/{{ $name | urlize | lower }}">{{ $name }} ({{ .Count }})</a>
+      <span class="panel__text">{{ .Page.Title | humanize | title }} ({{ .Count }})</span>
     </div>
-    
-    {{ end }}
-    {{ else }}
-    <div class="mx-4">
-        <select class="form-select text-center block mx-auto w-100 py-2 px-4"
-            name="archive" onChange="location.href=value;"
-            aria-label="Select Archive Range">
-            <option>Select Archive...</option>
-            {{ range $name, $items := .Site.Taxonomies.archives }}
-            <option value="{{ $.Site.BaseURL }}/archives/{{ $name | urlize | lower }}">{{ $name }} ({{ .Count }})
-            </option>
-            {{ end }}
-        </select>
-    </div>
-    {{ end }}
+  </a>
+  {{ end }}
+  {{ else }}
+  <div class="mx-4">
+    <select class="form-select text-center block mx-auto w-100 py-2 px-4" name="archive" onChange="location.href=value;"
+      aria-label="Select Archive Range">
+      <option>Select Archive...</option>
+      {{ range $name, $items := .Site.Taxonomies.archives }}
+      <option value="{{ $.Site.BaseURL }}/archives/{{ $name | urlize | lower }}">{{ $name }} ({{ .Count }})
+      </option>
+      {{ end }}
+    </select>
+  </div>
+  {{ end }}
 </div>
