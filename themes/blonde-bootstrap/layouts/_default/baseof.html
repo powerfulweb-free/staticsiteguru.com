@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{{ if eq .Site.Params.darkmode "dark" }}
+<html lang="{{ .Site.LanguageCode | default .Site.Language.Lang }}" class="dark">
+{{ else }}
+<html lang="{{ .Site.LanguageCode | default .Site.Language.Lang }}">
+{{ end }}
+{{- partial "head.html" . -}}
+
+<body class="bg-dark">
+  {{- partial "header.html" . -}}
+    
+  <main>
+    <div class="container-fluid">     
+      {{- block "main" . }}{{- end }}
+    </div>
+  </main>      
+  {{- partial "footer.html" . -}}
+
+</body>
+
+</html>

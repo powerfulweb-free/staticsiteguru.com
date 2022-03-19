@@ -1,0 +1,6 @@
+{{ $image := .Page.Resources.GetMatch .Destination -}}
+<figure class="figure">
+  <img class="figure-img img-fluid  d-flex mx-auto" data-sizes="auto" src="{{ $image.Permalink }}"  width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ .Text }}">
+  {{ with .Title }}<figcaption class="figure-caption text-center">{{ . | safeHTML }}</figcaption>{{ end -}}
+</figure>
+

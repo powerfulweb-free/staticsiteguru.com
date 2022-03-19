@@ -1,0 +1,6 @@
+{{- with (default .Site.Params.widgets.widgets .Params.widgets) -}}
+  {{- range $widget := . -}}
+    {{- $p := printf "widgets/%s.html" $widget -}}
+    {{- partial $p $ }}
+  {{- end -}}
+{{- end -}}

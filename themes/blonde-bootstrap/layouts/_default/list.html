@@ -1,0 +1,30 @@
+{{ define "header_css" }}{{ end }}
+
+{{ define "main" }}
+<div class="row">
+  <div class="col-lg-8">
+    {{ partial "inline/list-main" . }}
+  </div>
+  <div class="d-none d-lg-block col-lg-4 ">
+    {{ partial "widgets/index" . }}
+  </div>
+</div>
+{{ end }}
+
+{{ define "partials/inline/list-main.html" }}
+{{if not .IsHome}}<h2 class="text-white">{{ humanize .Title }}</h2>{{end}}
+{{if .IsHome}}
+{{.Scratch.Set "Paginator" (.Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections) (.Site.Params.paginator_pages) )}}
+{{else}}
+{{.Scratch.Set "Paginator" .Paginator}}
+{{end}}
+{{$paginator:=(.Scratch.Get "Paginator")}}
+{{ range $paginator.Pages }}
+<a href="{{.RelPermalink}}">
+  {{ .Render "summary" }}
+</a>
+{{ end }}
+{{ partial "paginator.html" . }}
+
+{{ end }}
+

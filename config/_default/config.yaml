@@ -1,0 +1,66 @@
+baseURL: "https://www.staticsiteguru.com/"
+title: "Static Site Guru"
+
+languageCode: "en"
+DefaultContentLanguage: "en"
+enableInlineShortcodes: true
+theme: "blonde-bootstrap"
+enableRobotsTXT: true
+
+
+
+# Please enable this feature if the site is available in Japanese, Chinese or Korean.
+#hasCJKLanguage: true
+
+# If you're using Google Analytics, you can enable this feature.
+#googleAnalytics: "G-1234567890"
+
+# Disqus Comment System
+disqusShortname: "staticsiteguru"
+
+markup:
+  highlight:
+    # noClasses: false
+    tabWidth: 2
+
+taxonomies:
+  category: "categories"
+  tag: "tags"
+  archive: "archives"
+
+
+
+build:
+  writeStats: true
+
+# module:
+#   imports:
+#   - path: 'github.com/future-wd-fork/Blonde'
+
+# check where these belong
+privacy:
+
+  vimeo:
+    disabled: false
+    simple: true
+
+  twitter:
+    disabled: false
+    enableDNT: true
+    simple: true
+
+  instagram:
+    disabled: false
+    simple: true
+
+  youtube:
+    disabled: false
+    privacyEnhanced: true
+
+services:
+
+  instagram:
+    disableInlineCSS: true
+
+  twitter:
+    disableInlineCSS: true
