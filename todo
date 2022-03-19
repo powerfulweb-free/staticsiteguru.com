@@ -7,7 +7,17 @@ theme color switcher?
 
 archives: hover on item block, bg-dark
 
+fix post single
+add breadcrumbs???
+
 scss variables:
 make inputs square
 search field background black, and the rest too?
-block hover colour variable
+$dark =  #1e2022;
+headings: white
+text: light
+
+
+hugo: 
+change to built in paginator and set up bs vars
+footer menu???

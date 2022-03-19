@@ -36,8 +36,8 @@ post:
   # https://tailwindcss.com/docs/width
   thumbnail_width: "w-auto"
 
-  # Number of characters in description
-  description: "130"
+  # Number of characters in post summary display
+  summary: 280
 
 widgets:
   # Display widgets
