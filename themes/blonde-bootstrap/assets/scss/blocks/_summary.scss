@@ -1,0 +1,36 @@
+.summary {
+  background-color: $black;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  transition-duration: 500ms;
+
+  &:hover {
+    transform: translateY(-0.25rem);
+  }
+  &__link {
+    text-decoration: none;
+  }
+  &__heading {
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: $white;
+    &--panel {
+      margin: 0;
+    }
+  }
+  &__text {
+    color: $light;
+    text-decoration: none;
+    text-decoration: none;
+  }
+  &__date {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: $text-muted;
+    text-decoration: none;
+    margin-top: auto !important;
+    margin-left: auto !important;
+    text-decoration: none;
+  }
+}

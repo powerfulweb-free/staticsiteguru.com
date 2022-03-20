@@ -1,0 +1,57 @@
+
+.panel {
+  background-color: $black;
+  padding: 0 1rem 1rem 1rem;
+  margin-bottom: 1rem;
+
+  &__heading {
+    color: $light;
+    text-align: center;
+    margin: 0;
+    padding: 1rem;
+    font-size: $h4-font-size;
+  }
+  &__block {
+    position: relative;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    &:hover {
+      background-color: $dark;
+      transition-duration: 100ms;
+    }
+    &--recent {
+      padding: 0 0.5rem ;
+      text-align: left;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__text {
+    color: $light;
+  }
+
+  &__tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: $dark;
+    color: $blue;
+    text-decoration: none;
+    transition-duration: 100ms;
+    line-height: 1rem; // is this default?
+    height: 2rem;
+
+    &:hover {
+      color: $blue-700;
+    }
+  }
+}
+
+

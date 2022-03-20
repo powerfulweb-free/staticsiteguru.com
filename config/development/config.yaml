@@ -1,2 +1,2 @@
 module:
-  replacements: 'github.com/future-wd-fork/Blonde -> blonde-fork'
+  replacements: 'github.com/future-wd/hugo-image/v3 -> ../../../future-wd/hugo-image/v3'

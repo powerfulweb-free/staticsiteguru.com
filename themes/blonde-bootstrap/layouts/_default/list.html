@@ -29,7 +29,7 @@
         {{ $img := "" }}
         {{ if (and .Site.Params.post.thumbnail .Params.images) }}
           {{ with (index .Params.images 0) }}
-            {{ $img = $ctx.Resources.GetMatch . }}
+            {{ $img = . }}
           {{ else }}
             {{ if .Site.Params.post.noimage }}
               {{ $img = resources.Get "img/default.jpg" }}
@@ -38,7 +38,16 @@
         {{ end }}
         {{ if $img }}
         <div class="col-md-5">
-          <img alt="thumbnail" id="thumb" class="img-fluid" src="{{ $img.RelPermalink }}" />
+          {{- $alt := printf "Thumbnail for %s post" .Title -}}
+          {{- $imageConfig := (dict
+            "src" $img
+            "page" $ctx
+            "widths" (slice 600 900)
+            "title" .Title 
+            "alt" $alt
+            "fillRatio" (slice 3 2)
+          ) -}}
+          {{ partial "image" $imageConfig -}}
         </div>
         <div class="col-md-7 d-flex flex-column">
         {{ else }}

@@ -25,6 +25,7 @@ _testmain.go
 /public
 node_modules
 .hugo_build.lock
+/resources
 
 blonde-fork/
 /themes/blonde-fork
