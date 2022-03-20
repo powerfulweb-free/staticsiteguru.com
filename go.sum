@@ -10,3 +10,5 @@ github.com/future-wd-fork/Blonde v0.0.5 h1:pBToK6EzBR+yxwAFMeuI65F80ml3Kvqf4RU36
 github.com/future-wd-fork/Blonde v0.0.5/go.mod h1:cW/G+3m3jSP4rMwWO7J202H0MP28nGu1q4xHNCeNGl8=
 github.com/future-wd-fork/Blonde v0.0.6 h1:b4tL340S3WEXAmMBa+E6o3GbbZKtajxPwE5Ns4eT2Io=
 github.com/future-wd-fork/Blonde v0.0.6/go.mod h1:cW/G+3m3jSP4rMwWO7J202H0MP28nGu1q4xHNCeNGl8=
+github.com/future-wd/hugo-svg-font/v2 v2.3.3 h1:PYoGTQRtPBFaqnsrxhM4V8BOuIyju3LW/4FeHwyfMXM=
+github.com/future-wd/hugo-svg-font/v2 v2.3.3/go.mod h1:+fHj9IQFqQPVz/JXV5uEiqmkDRQLeClX7IlBp/fvfhI=

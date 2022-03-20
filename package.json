@@ -1,10 +1,10 @@
 {
-    "name": "Blonde",
-    "version": "0.0.1",
-    "description": "Blonde, A simple theme using Tailwind CSS.",
-    "main": "index.js",
-    "repository": "https://github.com/opera7133/Blonde",
-    "author": "wamo <ainznino@pm.me>",
+    "name": "Vanilla Bootstrap Blog",
+    "version": "",
+    "description": "",
+    "main": "",
+    "repository": "",
+    "author": "Sean Emerson",
     "license": "MIT",
     "scripts": {
       "dev": "hugo server --gc --disableFastRender",
@@ -14,17 +14,14 @@
       "start:prod": "hugo server --gc --disableFastRender --renderToDisk  --cleanDestinationDir --minify --environment production",
       "npm-check": "npm-check -u"
     },
-    "devDependencies": {
-        "@fullhuman/postcss-purgecss": "^4.0.3",
-        "@tailwindcss/typography": "^0.4.1",
+    "dependencies": {
+        "bootstrap": "^5.1.0",
         "autoprefixer": "^10.3.7",
         "postcss": "^8.3.9",
-        "postcss-cli": "^9.0.1",
-        "postcss-import": "^14.0.2",
-        "tailwindcss": "^2.2.16"
+        "postcss-cli": "^9.0.1"
     },
     "browserslist": [
-        "last 1 version",
+        "last 2 versions",
         "> 1%",
         "maintained node versions",
         "not dead"

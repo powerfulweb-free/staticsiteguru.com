@@ -3,3 +3,31 @@
 @import "blocks/sidebar";
 @import "blocks/summary";
 @import "blocks/header-footer";
+
+
+@import "svg-font";
+.svg-font {
+  font-size: 1.25rem; //fs-5
+}
+
+.search {
+  &__input {
+    background-color: $black;
+    border: 0;
+  }
+  &__btn {
+    background-color: $black;
+    // &:hover {
+    //   background-color: $dark;
+    // }
+  }
+}
+
+.archive {
+  &__select {
+    border-color: $secondary;
+  }
+  &__btn {
+    background-color: $dark;
+  }
+}

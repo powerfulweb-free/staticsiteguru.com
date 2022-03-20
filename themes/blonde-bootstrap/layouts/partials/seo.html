@@ -5,7 +5,7 @@
 	{{- $description = .Params.seo.description -}}
 {{- /* 2. Description | strip tags */ -}}
 {{- else if .Params.description -}}
-	{{- $description = .Params.description | plainify -}}
+	{{- $description = .Params.description | markdownify | plainify -}}
 {{- /* 3. Summary | strip tags */ -}}
 {{- else if .Summary -}}
 	{{- $description = .Summary | plainify -}}
@@ -15,7 +15,7 @@
 {{- end -}}
 <meta name="description" content="{{ $description }}">
 {{- /* Canonical */ -}}
-<link rel="canonical" href="{{ with .Params.seo.canonical }}{{ . | absURL }}{{ else }}{{ .Permalink }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
 {{- /* Publish times - only shown for posts */ -}}
 {{- if eq .Type "post" -}}
 {{- $published := "" -}}

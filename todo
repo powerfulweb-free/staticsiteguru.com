@@ -2,10 +2,8 @@ check where last to config entries belong (in site)
 
 theme:
 add post css
-fix current menu item, and background color to gray-800
 theme color switcher?
 
-archives: hover on item block, bg-dark
 
 fix post single
 add breadcrumbs???
@@ -13,17 +11,14 @@ add breadcrumbs???
 scss variables:
 make inputs square
 search field background black, and the rest too?
-$dark =  #1e2022;
-headings: white
-text: light
 
 
 hugo: 
-change to built in paginator and set up bs vars
 footer menu???
 
 place theme into module!!!!
 set up example site with some data e.g. readme and instructions on how to mount example site
 
 summary thumbnail image - create ability to pass resource into partial
+
 

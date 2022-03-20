@@ -1,9 +1,9 @@
 ---
 title: "Contact"
-description: "Hugo, the world's fastest framework for building websites"
+description: "How to get in contact with us."
 date: 2019-02-30
-aliases: ["contact"]
-author: "Hugo Authors"
-draft: true
+draft: false
+menu: main
+weight: 30
 ---
 

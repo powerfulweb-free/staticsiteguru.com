@@ -6,7 +6,10 @@
     {{- range $termName, $entries := .Site.Taxonomies.tags }}
     {{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
     {{- if le ($.Scratch.Get "myLimit") ($.Site.Param `tagslimit`) }}
-    <a class="panel__tag" role="button" href="{{ .Page.RelPermalink }}">
+    <!-- <a class="panel__tag" role="button" href="{{ .Page.RelPermalink }}">
+      {{ .Page.Title | humanize | title }}
+    </a> -->
+    <a class="btn btn-dark me-1 mb-2" role="button" href="{{ .Page.RelPermalink }}">
       {{ .Page.Title | humanize | title }}
     </a>
     {{- end }}

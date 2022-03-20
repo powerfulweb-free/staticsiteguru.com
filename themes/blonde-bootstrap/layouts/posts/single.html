@@ -1,0 +1,93 @@
+{{ define "header_css" }}{{ end }}
+
+{{ define "main" }}
+<div class="single bg-black p-3">
+  <h1 class="">{{.Title}}</h1>
+  <hr>
+  <aside>
+    <div class="row">
+      <div class="col">
+        {{ partial "svg-font" (dict 
+              "src" "icons/bootstrap/clock.svg"
+              "title" "Date"
+              "description" "Post creation and modification dates"
+              ) }}
+        {{ .Date.Format site.Params.date_format }}
+        {{- if ne .Date .Lastmod -}}
+        {{- with .Lastmod -}} <em>last updated on</em> {{ .Format site.Params.date_format}}{{- end -}}
+        {{- end -}}
+      </div>
+    </div>
+    <div class="row pb-2">
+      <div class="col-md-6">
+        {{- with (.GetTerms "categories") -}}
+        <div>
+          {{ partial "svg-font" (dict 
+              "src" "icons/bootstrap/folder.svg"
+              "title" "Date"
+              "description" "Post creation and modification dates"
+              ) }}
+          {{ range $index, $category := . }}
+          {{ if gt $index 0 }} | {{ end }}
+          <a href="{{ .RelPermalink }}" class="text-decoration-none text-white">{{ .LinkTitle | humanize | title
+            }}</a></span>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+      <div class="col-md-6 d-flex">
+        {{- with (.GetTerms "tags") -}}
+        <div class="ms-auto">
+          {{ partial "svg-font" (dict 
+              "src" "icons/bootstrap/tags.svg"
+              "title" "Date"
+              "description" "Post creation and modification dates"
+              ) }}
+          {{ range $index, $tag := . }}
+          {{ if gt $index 0}} | {{ end }}<a href="{{ .RelPermalink }}" class="text-decoration-none text-white">{{
+            .LinkTitle | humanize | title }}</a>
+          {{ end }}
+        </div>
+        {{ end }}
+      </div>
+
+
+
+    </div>
+  </aside>
+  <hr>
+  <div class="content mt-5">{{.Description}}</div>
+  {{ with (index $.Params.images 0) }}
+  {{- $imgConfig := (dict
+  "src" .
+  "page" $
+  "widths" (slice 600 900 1200)
+  "title" $.Title
+  ) -}}
+  {{ partial "image" $imgConfig -}}
+  {{ end }}
+
+  <div class="content mt-5">{{.Content}}</div>
+</div>
+
+<div class="row p-3">
+  <div class="col-6">
+    {{ with .PrevInSection }}
+    <a class="btn btn-outline-secondary" href="{{ .RelPermalink }}">&lt; {{ .Title }}</a>
+    {{ end }}
+  </div>
+  <div class="col-6 d-flex">
+    {{ with .NextInSection }}
+    <a class="btn btn-outline-secondary ms-auto" href="{{ .RelPermalink }}">{{ .Title }} &gt;</a>
+    {{ end }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col mb-3">
+    {{ template "_internal/disqus.html" . }}
+  </div>
+</div>
+
+
+{{ end }}

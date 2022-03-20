@@ -1,2 +1,2 @@
 module:
-  replacements: 'github.com/future-wd/hugo-image/v3 -> ../../../future-wd/hugo-image/v3'
+  replacements: 'github.com/future-wd/hugo-image/v3 -> ../../../future-wd/hugo-image/v3,github.com/future-wd/hugo-svg-font/v2 -> ../../../future-wd/hugo-svg-font/v2 '

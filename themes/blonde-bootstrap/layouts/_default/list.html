@@ -1,74 +1,72 @@
 {{ define "header_css" }}{{ end }}
 
 {{ define "main" }}
-<div class="row g-3">
-  <div class="col-lg-8">
-    {{ partial "inline/list-main" . }}
-  </div>
-  <div class="d-none d-lg-block col-lg-4 ">
-    {{ partial "widgets/index" . }}
-  </div>
-</div>
-{{ end }}
-
-{{ define "partials/inline/list-main.html" }}
-{{if not .IsHome}}<h2 class="text-white h1">{{ humanize .Title }}</h2>{{end}}
-{{if .IsHome}}
-{{.Scratch.Set "Paginator" (.Paginate (where .Site.RegularPages "Type" "in" site.Params.mainSections)
-(.Site.Params.paginator_pages) )}}
-{{else}}
-{{.Scratch.Set "Paginator" .Paginator}}
-{{end}}
-{{$paginator:=(.Scratch.Get "Paginator")}}
-{{ range $paginator.Pages }}
-{{ $ctx := . }}
-<div class="summary">
-  <a class="summary__link" href="{{.RelPermalink}}">
-    <div class="row">
-      
-        {{ $img := "" }}
-        {{ if (and .Site.Params.post.thumbnail .Params.images) }}
-          {{ with (index .Params.images 0) }}
-            {{ $img = . }}
-          {{ else }}
-            {{ if .Site.Params.post.noimage }}
-              {{ $img = resources.Get "img/default.jpg" }}
+{{- if not .IsHome }}
+  <h2 class="text-white h1">{{ humanize .Title }}</h2>
+{{- end }}
+{{- $paginator := "" -}}
+{{- if .IsHome -}}
+  {{- $paginator = .Paginate (where .Site.RegularPages "Type" "posts") -}}
+{{- else -}}
+  {{- $paginator = .Paginator -}}
+{{- end -}}
+{{- range $paginator.Pages -}}
+  {{- $ctx := . -}}
+  <div class="summary">
+    <a class="summary__link" href="{{.RelPermalink}}">
+      <div class="row">
+          {{ $img := "" }}
+          {{ if (and .Site.Params.post.thumbnail .Params.images) }}
+            {{ with (index .Params.images 0) }}
+              {{ $img = . }}
+            {{ else }}
+              {{ if .Site.Params.post.noimage }}
+                {{ $img = resources.Get "img/default.jpg" }}
+              {{ end }}
             {{ end }}
           {{ end }}
-        {{ end }}
-        {{ if $img }}
-        <div class="col-md-5">
-          {{- $alt := printf "Thumbnail for %s post" .Title -}}
-          {{- $imageConfig := (dict
-            "src" $img
-            "page" $ctx
-            "widths" (slice 600 900)
-            "title" .Title 
-            "alt" $alt
-            "fillRatio" (slice 3 2)
-          ) -}}
-          {{ partial "image" $imageConfig -}}
-        </div>
-        <div class="col-md-7 d-flex flex-column">
-        {{ else }}
-        <div class="col d-flex flex-column">
-        {{ end }}
-        {{ if .IsHome }}
-        <h2 class="summary__heading">{{ .Title }}</h2>
-        {{ else }}
-        <h3 class="summary__heading">{{ .Title }}</h3>
-        {{ end }}
+          {{ if $img }}
+          <div class="col-md-5">
+            {{- $alt := printf "Thumbnail for %s post" .Title -}}
+            {{- $imageConfig := (dict
+              "src" $img
+              "page" $ctx
+              "widths" (slice 600 900)
+              "title" .Title 
+              "alt" $alt
+              "fillRatio" (slice 3 2)
+            ) -}}
+            {{ partial "image" $imageConfig -}}
+          </div>
+          <div class="col-md-7 d-flex flex-column">
+          {{ else }}
+          <div class="col d-flex flex-column">
+          {{ end }}
+          {{ if .IsHome }}
+          <h2 class="summary__heading">{{ .Title }}</h2>
+          {{ else }}
+          <h3 class="summary__heading">{{ .Title }}</h3>
+          {{ end }}
 
-        <div class="summary__text">{{ truncate .Site.Params.post.summary .Content | plainify | htmlUnescape }}</div>
-        <div class="summary__date">
-          <time>{{ .Date.Format .Site.Params.date_format }}</time>
+          <div class="summary__text">{{ truncate .Site.Params.post.summary .Content | plainify | htmlUnescape }}</div>
+          <div class="summary__date">
+            {{ partial "svg-font" (dict 
+              "src" "icons/bootstrap/clock.svg"
+              "title" "Date"
+              "description" "Post creation and modification dates"
+              ) }}
+            <time>{{ .Date.Format .Site.Params.date_format }}</time>
+          </div>
         </div>
       </div>
-    </div>
-  </a>
-</div>
+    </a>
+  </div>
 
 {{ end }}
-{{ partial "paginator.html" . }}
+<div class="row">
+  <div class="col d-flex justify-content-center">
+    {{ template "_internal/pagination.html" . }}
+  </div>
+</div>
 
 {{ end }}
