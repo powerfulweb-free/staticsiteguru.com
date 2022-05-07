@@ -5,7 +5,7 @@ enableRobotsTXT: true
 
 markup:
   highlight:
-    # noClasses: false
+    noClasses: false # uses classes, must add stylesheet
     tabWidth: 2
 
 taxonomies:

@@ -29,7 +29,8 @@ widgets:
   display: true
 
   # Order of widgets to display
-  widgets: ["search", "archive", "category", "tags", "recent"]
+  # widgets: ["search", "archive", "category", "tags", "recent"]
+  widgets: ["categories", "tags", "recent"]
   # "search", 
 
 
