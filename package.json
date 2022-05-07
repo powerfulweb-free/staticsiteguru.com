@@ -7,16 +7,17 @@
     "author": "Sean Emerson",
     "license": "MIT",
     "scripts": {
-      "dev": "hugo server --gc --disableFastRender",
-      "dev:drafts": "hugo server --gc --disableFastRender --buildFuture --buildDrafts",
-      "build": "hugo --gc --cleanDestinationDir --minify",
-      "start:dev": "hugo server --gc --disableFastRender --renderToDisk  --cleanDestinationDir",
-      "start:prod": "hugo server --gc --disableFastRender --renderToDisk  --cleanDestinationDir --minify --environment production",
-      "npm-check": "npm-check -u"
+        "dev": "hugo server --gc --disableFastRender",
+        "dev:drafts": "hugo server --gc --disableFastRender --buildFuture --buildDrafts",
+        "build": "hugo --gc --cleanDestinationDir --minify",
+        "start:dev": "hugo server --gc --disableFastRender --renderToDisk  --cleanDestinationDir",
+        "start:prod": "hugo server --gc --disableFastRender --renderToDisk  --cleanDestinationDir --minify --environment production",
+        "npm-check": "npm-check -u"
     },
     "dependencies": {
-        "bootstrap": "^5.1.0",
         "autoprefixer": "^10.3.7",
+        "bootstrap": "^5.1.0",
+        "lazysizes": "^5.3.2",
         "postcss": "^8.3.9",
         "postcss-cli": "^9.0.1"
     },

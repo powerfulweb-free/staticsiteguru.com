@@ -1,0 +1,35 @@
+{{- /* ESBUILD.HTML - Build javascript modules with esbuild
+  * Usage:  {{ partial "esbuild" (dict "src" "js/file.js"  "load" "(defer), async " ) }}  
+  * Parameters:
+  * src - javascript file to build, relative to assets folder
+  
+  * load - default "defer" can be set to "async" or " " . To pre load scripts, call partial in <head> and use defer (default)
+  * babelEs6 - set to true to transpile es6 using babel (target module browsers)
+  * use this option if esbuilt can't handle your code see https://esbuild.github.io/content-types/#javascript
+  * for unsupported syntax
+  * https://esbuild.github.io/content-types/#javascript
+  * for unsupported syntax
+  */ -}}
+
+{{- /*  supresses errors if no or error .src is supplied */ -}}
+{{- $src := resources.Get .src -}}
+{{- /* for develop environment e.g. hugo server most es6+ features will be lowered to es6 */ -}}
+{{- /* https://esbuild.github.io/content-types/#javascript */ -}}
+{{- $params := (dict "env" hugo.Environment) -}}
+{{- $jsConfig := (dict "target" "es2015" "minify" "true" "params" $params) }}
+{{- $src := $src | js.Build $jsConfig | fingerprint "sha512" -}}
+{{- if $.babelEs6 -}}
+{{- $babelConfig := (dict "noComments" true "minified" true "config" "config/babel.module.config.js") -}}
+{{- $src = $src | js.Build $jsConfig | babel $babelConfig | fingerprint "sha512" -}}
+{{- end -}}
+{{- if eq (hugo.Environment) "development" -}}
+{{- $jsConfig = (dict "sourceMap" "inline" "target" "es2015" "params" $params) -}}
+{{- $src = $src | js.Build $jsConfig | fingerprint "sha512" -}}
+{{ end -}}
+
+<script
+{{ if eq $.load "async" -}} async {{ else }} defer {{ end }}
+src="{{- $src.RelPermalink -}}"
+integrity="{{- $src.Data.Integrity -}}">
+</script>
+

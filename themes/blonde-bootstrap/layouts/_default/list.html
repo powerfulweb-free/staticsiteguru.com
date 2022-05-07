@@ -28,6 +28,8 @@
           {{ if $img }}
           <div class="col-md-5">
             {{- $alt := printf "Thumbnail for %s post" .Title -}}
+            {{ $anchor := "Smart" }}
+            {{ with .Params.anchor }}{{ $anchor = . }}{{ end }}
             {{- $imageConfig := (dict
               "src" $img
               "page" $ctx
@@ -35,6 +37,7 @@
               "title" .Title 
               "alt" $alt
               "fillRatio" (slice 3 2)
+              "anchor" $anchor
             ) -}}
             {{ partial "image" $imageConfig -}}
           </div>
