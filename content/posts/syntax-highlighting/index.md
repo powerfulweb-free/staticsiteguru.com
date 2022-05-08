@@ -1,5 +1,6 @@
 ---
-author: "Sean Emerson"
+author: 
+  name: "Sean Emerson"
 title: Syntax Highlighting
 lead:
 draft: true

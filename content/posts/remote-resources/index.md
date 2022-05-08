@@ -1,5 +1,6 @@
 ---
-author: "Sean Emerson"
+author: 
+  name: "Sean Emerson"
 title: Remote Resources
 lead: Now you can pass remote resources into Hugo Pipes just like they are local resources
 draft: false

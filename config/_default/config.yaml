@@ -1,7 +1,9 @@
 
 enableRobotsTXT: true
+enableGitInfo: true
 
-
+# timeZone: Australia/Sydney
+# not used as not capturing time in markdown
 
 markup:
   highlight:

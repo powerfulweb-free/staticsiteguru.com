@@ -1,6 +1,7 @@
 ---
-author: "Sean Emerson"
-title: Jsonify
+author: 
+  name: "Sean Emerson"
+title: Jsonify - Easily create JSON formatted Date with HUGO!
 lead:
 draft: false
 date: 2022-05-07

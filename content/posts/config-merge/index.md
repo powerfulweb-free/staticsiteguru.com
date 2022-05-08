@@ -1,5 +1,6 @@
 ---
-author: "Sean Emerson"
+author: 
+  name: "Sean Emerson"
 title: "Module configuration merging in Hugo v0.84.0"
 draft: false
 date: 2021-11-17

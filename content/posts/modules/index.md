@@ -1,5 +1,6 @@
 ---
-author: "Sean Emerson"
+author: 
+  name: "Sean Emerson"
 title: Getting started with Hugo Modules
 lead: Hugo modules will save you from replicating code, and help you manage dependencies across project much easier. 
 draft: false

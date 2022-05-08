@@ -1,5 +1,6 @@
 ---
-author: "Sean Emerson"
+author: 
+  name: "Sean Emerson"
 title: Hugo Module replacements
 lead:
 draft: false

@@ -1,5 +1,6 @@
 ---
-author: "Sean Emerson"
+author: 
+  name: "Sean Emerson"
 title: Getting started with Hugo
 lead: Hugo is a powerful yet efficient static site generator
 draft: true
