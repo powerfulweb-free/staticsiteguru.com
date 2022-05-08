@@ -1,51 +1,73 @@
 {{ define "header_css" }}{{ end }}
 
 {{ define "main" }}
-<div class="single bg-black p-3">
-  <h1 class="">{{.Title}}</h1>
-  <hr>
+<div class="container-fluid   single bg-black p-3">
+  <div class="row">
+    <div class="col">
+      <h1 class="">{{.Title}}</h1>
+      <hr>
+    </div>
+  </div>
+
   <aside>
     <div class="row">
-      <div class="col">
-        {{ partial "svg-font" (dict 
-              "src" "icons/bootstrap/clock.svg"
-              "title" "Date"
-              "description" "Post creation and modification dates"
-              ) }}
-        {{ .Date.Format site.Params.date_format }}
-        {{- if ne .Date .Lastmod -}}
-        {{- with .Lastmod -}} <em>last updated on</em> {{ .Format site.Params.date_format}}{{- end -}}
+      <div class="col-md-6">
+        {{ partial "svg-font" (dict
+        "src" "icons/bootstrap/clock.svg"
+        "title" "Date"
+        "description" "Post creation and modification dates"
+        ) }}
+        {{ $publishDate := .PublishDate.Format site.Params.date_format }}
+        {{ $publishDate }}
+        {{ $lastmod := .Lastmod.Format site.Params.date_format }}
+        {{- if ne $publishDate $lastmod -}}
+        <em>last updated on</em> {{ $lastmod }}
         {{- end -}}
+      </div>
+      <div class="col-md-6 d-flex">
+        {{- with .ReadingTime }}
+        <div class="ms-md-auto">
+          {{ partial "svg-font" (dict
+          "src" "icons/bootstrap/book.svg"
+          "title" "Reading Time"
+          "description" "Post creation and modification dates"
+          ) }}
+          {{ . }} minute{{ if gt . 1 }}s{{ end }}
+        </div>
+        {{- end }}
       </div>
     </div>
     <div class="row pb-2">
       <div class="col-md-6">
         {{- with (.GetTerms "categories") -}}
         <div>
-          {{ partial "svg-font" (dict 
-              "src" "icons/bootstrap/folder.svg"
-              "title" "Date"
-              "description" "Post creation and modification dates"
-              ) }}
+          {{ partial "svg-font" (dict
+          "src" "icons/bootstrap/folder.svg"
+          "title" "Date"
+          "description" "Post creation and modification dates"
+          ) }}
           {{ range $index, $category := . }}
           {{ if gt $index 0 }} | {{ end }}
-          <a href="{{ .RelPermalink }}" class="text-decoration-none text-white">{{ .LinkTitle | humanize | title
-            }}</a></span>
+          <a href="{{ .RelPermalink }}" class="text-decoration-none text-white">
+            {{ .Title | humanize | title }}
+          </a>
           {{ end }}
         </div>
         {{ end }}
       </div>
       <div class="col-md-6 d-flex">
         {{- with (.GetTerms "tags") -}}
-        <div class="ms-auto">
-          {{ partial "svg-font" (dict 
-              "src" "icons/bootstrap/tags.svg"
-              "title" "Date"
-              "description" "Post creation and modification dates"
-              ) }}
+        <div class="ms-md-auto">
+          {{ partial "svg-font" (dict
+          "src" "icons/bootstrap/tags.svg"
+          "title" "Date"
+          "description" "Post creation and modification dates"
+          ) }}
           {{ range $index, $tag := . }}
-          {{ if gt $index 0}} | {{ end }}<a href="{{ .RelPermalink }}" class="text-decoration-none text-white">{{
-            .LinkTitle | humanize | title }}</a>
+          {{ if gt $index 0}} | {{ end }}
+          <a href="{{ .RelPermalink }}" class="text-decoration-none text-white">
+            {{ .Title | humanize | title }}
+          </a>
           {{ end }}
         </div>
         {{ end }}
@@ -56,38 +78,45 @@
     </div>
   </aside>
   <hr>
-  <div class="content mt-5">{{.Description}}</div>
-  {{ with (index $.Params.images 0) }}
-  {{- $imgConfig := (dict
-  "src" .
-  "page" $
-  "widths" (slice 600 900 1200)
-  "title" $.Title
-  ) -}}
-  {{ partial "image" $imgConfig -}}
-  {{ end }}
+  <div class="row">
+    <div class="col">
 
-  <div class="content mt-5">{{.Content}}</div>
-</div>
 
-<div class="row p-3">
-  <div class="col-6">
-    {{ with .PrevInSection }}
-    <a class="btn btn-outline-secondary" href="{{ .RelPermalink }}">&lt; {{ .Title }}</a>
-    {{ end }}
+      <div class="content mt-5">{{.Description}}</div>
+      {{ with (index $.Params.images 0) }}
+      {{- $imgConfig := (dict
+      "src" .
+      "page" $
+      "widths" (slice 600 900 1200)
+      "title" $.Title
+      ) -}}
+      {{ partial "image" $imgConfig -}}
+      {{ end }}
+
+      <div class="content mt-5">{{.Content}}</div>
+    </div>
   </div>
-  <div class="col-6 d-flex">
-    {{ with .NextInSection }}
-    <a class="btn btn-outline-secondary ms-auto" href="{{ .RelPermalink }}">{{ .Title }} &gt;</a>
-    {{ end }}
-  </div>
-</div>
 
-<div class="row">
-  <div class="col mb-3">
-    {{ template "_internal/disqus.html" . }}
-  </div>
-</div>
+  <div class="row py-3">
+    <div class="col-6">
+      {{ with .NextInSection }}
+      <a class="btn btn-outline-secondary" href="{{ .RelPermalink }}"> &lt; Previous Post</a>
+      {{ end }}
+    </div>
+    <div class="col-6 d-flex">
+      {{ with .PrevInSection }}
+      <a class="btn btn-outline-secondary ms-auto" href="{{ .RelPermalink }}">Next Post &gt;</a>
+      {{ end }}
 
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col mb-3">
+      {{ template "_internal/disqus.html" . }}
+    </div>
+  </div>
+
+</div>
 
 {{ end }}

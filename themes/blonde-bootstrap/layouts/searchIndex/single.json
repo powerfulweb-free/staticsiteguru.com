@@ -1,0 +1,27 @@
+{{- $scratch := newScratch -}}
+{{- $scratch.Set "index" slice -}}
+{{- $pages := .Site.RegularPages -}}
+{{- $pages = where $pages "Params.private" "!=" "true" -}}
+{{- range $pages -}}
+  {{-  $image := "" -}}
+  {{- if .Params.images -}}
+    {{- if ge (len .Params.images) 1 -}}
+      {{- with .Resources.GetMatch (index .Params.images 0) -}}
+        {{- $image = .Resize "200x" -}}
+        {{- $image = $image.RelPermalink -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+  {{- $categoriesTerms := .GetTerms "categories" -}}
+  {{- $categories := slice -}}
+  {{- range $categoriesTerms -}}
+    {{- $categories = $categories | append (dict "title" (.Title | humanize | title ) "relPermalink" .RelPermalink )}}
+  {{- end -}}
+  {{- $tagsTerms := .GetTerms "tags" -}}
+  {{- $tags := slice -}}
+  {{- range $tagsTerms -}}
+    {{- $tags = $tags | append (dict "title" (.Title | humanize | title ) "relPermalink" .RelPermalink )}}
+  {{- end -}}
+  {{- $scratch.Add "index" (dict "title" .Title "image" $image "summary" .Summary "content" .Plain "categories" $categories "tags" $tags "permalink" .Permalink) -}}
+{{- end -}}
+{{ $scratch.Get "index" | jsonify }}

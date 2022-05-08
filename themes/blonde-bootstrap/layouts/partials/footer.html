@@ -18,3 +18,13 @@
     </div>
 </footer>
 {{ partial "esbuild" (dict "src" "js/vendor.js") }}
+{{- if eq .Type "searchPage" -}}
+  {{- /* product esbuild options */ -}}
+  {{- $opts := (dict "minify" true "target" "es2015" ) -}}
+  {{- if eq hugo.Environment "development" -}}
+    {{- /* development esbuild options */ -}}
+    {{- $opts = (dict "sourceMap" "inline" "target" "es2015" ) -}}
+  {{- end -}}
+  {{- $search := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . | js.Build $opts | fingerprint -}}
+  <script src="{{ $search.RelPermalink }}" integrity="{{ $search.Data.Integrity }}"></script>
+{{- end -}}

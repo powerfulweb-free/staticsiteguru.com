@@ -8,9 +8,12 @@
         <input type="hidden" name="sitesearch" value="{{ .Site.BaseURL }}" />
     </form>
 </div> -->
-<form class="d-flex" role="search">
+
+
+<form class="d-flex" method="get" action="/search/index.html">
   <div class="search input-group mb-3">
-    <input class="form-control search__input" type="search" placeholder="Search" aria-label="Search" aria-describedby="button-search">
+    <input id="js-searchInput" class="form-control search__input" type="search" role="search" placeholder="Search"
+      aria-label="Search" name="q" autocapitalize="off" autocomplete="off" autocorrect="off" spellcheck="false">
     <button class="search__btn btn btn-outline-secondary" type="submit" id="button-search">Go</button>
   </div>
 </form>

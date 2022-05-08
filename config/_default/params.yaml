@@ -30,7 +30,7 @@ widgets:
 
   # Order of widgets to display
   # widgets: ["search", "archive", "category", "tags", "recent"]
-  widgets: ["categories", "tags", "recent"]
+  widgets: ["search", "categories", "tags", "recent"]
   # "search", 
 
 
