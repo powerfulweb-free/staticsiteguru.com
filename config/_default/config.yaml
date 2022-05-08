@@ -17,8 +17,8 @@ taxonomies:
 
 
 
-build:
-  writeStats: true
+# build:
+#   writeStats: true
 
 module:
   imports:
@@ -43,28 +43,28 @@ enableInlineShortcodes: true
 theme: "blonde-bootstrap"
 
 # https://gohugo.io/about/hugo-and-gdpr/#the-privacy-settings-explained
-privacy:
-  disqus:
-    disable: false
-  googleAnalytics:
-    anonymizeIP: false
-    disable: false
-    respectDoNotTrack: false
-    useSessionStorage: false
-  instagram:
-    disable: false
-    simple: false
-  twitter:
-    disable: false
-    enableDNT: false
-    simple: false
-  vimeo:
-    disable: false
-    enableDNT: false
-    simple: false
-  youtube:
-    disable: false
-    privacyEnhanced: false
+# privacy:
+#   disqus:
+#     disable: false
+#   googleAnalytics:
+#     anonymizeIP: false
+#     disable: false
+#     respectDoNotTrack: false
+#     useSessionStorage: false
+#   instagram:
+#     disable: false
+#     simple: false
+#   twitter:
+#     disable: false
+#     enableDNT: false
+#     simple: false
+#   vimeo:
+#     disable: false
+#     enableDNT: false
+#     simple: false
+#   youtube:
+#     disable: false
+#     privacyEnhanced: false
 
 
 

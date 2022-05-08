@@ -16,25 +16,6 @@
 <meta name="description" content="{{ $description }}">
 {{- /* Canonical */ -}}
 <link rel="canonical" href="{{ .Permalink }}">
-{{- /* Publish times - only shown for posts */ -}}
-{{- if eq .Type "posts" -}}
-  {{- $iso8601 := "2006-01-02T15:04:05-07:00" -}}
-  {{- $date := "" -}}  
-  {{- if not .PublishDate.IsZero -}}
-    {{- $date = .PublishDate -}}
-  {{- else if not .Date.IsZero -}}
-    {{- $date = .Date -}}
-  {{- end -}}
-  {{- with $date }}
-    <meta property="article:published_time" content="{{ $date.Format $iso8601 }}">
-  {{- end -}}
-  {{- if not .Lastmod.IsZero -}}
-    {{- if ne (.LastMod.Format "02.01.2006") (.PublishDate.Format "02.01.2006") }}
-      <meta property="article:updated_time" content="{{- .Lastmod.Format $iso8601 }}">
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-<meta property="{{ .LastMod }}">
 {{- /* facebook and twitter templates */ -}}
 {{ template "_internal/twitter_cards.html" . }}
 {{ template "_internal/opengraph.html" . }}

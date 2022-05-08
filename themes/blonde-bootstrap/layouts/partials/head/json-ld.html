@@ -11,23 +11,23 @@
     {{- end -}}
   {{- end -}}
   {{- with .PublishDate -}}
-    {{- $scratch.SetInMap "article" "datePublished" .Format $iso8601 -}}
+    {{- $scratch.SetInMap "article" "datePublished" (.Format $iso8601) -}}
   {{- end -}}
-  {{ if not .LastMod.IsZero }}
-    {{- if ne .Date .LastMod -}}
-      {{- $scratch.SetInMap "article" "dateModified" (.LastMod.Format $iso8601) -}}
+  {{ if .Lastmod }}
+    {{- if ne (.PublishDate.Format "2006-01-02") (.Lastmod.Format "2006-01-02") -}}
+      {{- $scratch.SetInMap "article" "dateModified" (.Lastmod.Format $iso8601) -}}
     {{- end -}}
   {{ end }}
   {{- with .Title -}}
     {{- $scratch.SetInMap "article" "headline" . -}}
   {{- end -}}
-  {{- /* with .Params.images -}}
+  {{- with .Params.images -}}
     {{- with index . 0 -}}
-      {{- with .Resources.GetMatch . -}}
+      {{- with $.Resources.GetMatch . -}}
         {{- $scratch.SetInMap "article" "image" (slice .Permalink) -}}
       {{- end -}}
     {{- end -}}
-  {{- end */ -}}
+  {{- end -}}
   <script type="application/ld+json">
     {{ $scratch.Get "article" | jsonify (dict "indent" "  ") | safeJS }}
   </script>
