@@ -54,11 +54,11 @@
           <div class="summary__text">{{ truncate .Site.Params.post.summary .Content | plainify | htmlUnescape }}</div>
           <div class="summary__date">
             {{ partial "svg-font" (dict 
-              "src" "icons/bootstrap/clock.svg"
+              "src" "icons/bootstrap/calendar2-date.svg"
               "title" "Date"
               "description" "Post creation and modification dates"
               ) }}
-            <time>{{ .Date.Format .Site.Params.date_format }}</time>
+            <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format .Site.Params.date_format }}</time>
           </div>
         </div>
       </div>
