@@ -1,6 +1,7 @@
 {{ define "header_css" }}{{ end }}
 
 {{ define "main" }}
+{{ $timeFmt := "2006-01-02" }}
 <div class="container-fluid   single bg-black p-3">
   <div class="row">
     <div class="col">
@@ -18,10 +19,10 @@
         "description" "Post creation and modification dates"
         ) }}
         {{ $publishDate := .PublishDate.Format site.Params.date_format }}
-        {{ $publishDate }}
+        <time datetime="{{ .PublishDate.Format $timeFmt }}">{{ $publishDate }}</time>
         {{ $lastmod := .Lastmod.Format site.Params.date_format }}
         {{- if ne $publishDate $lastmod -}}
-        <em>last updated on</em> {{ $lastmod }}
+        <em>last updated on</em> <time datetime="{{ .Lastmod.Format $timeFmt }}">{{ $lastmod }}</time>
         {{- end -}}
       </div>
       <div class="col-md-6 d-flex">
