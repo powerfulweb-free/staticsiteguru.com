@@ -2,17 +2,13 @@
 <div class="panel">
   <h3 class="panel__heading">Tags</h3>
   <div class="">
-    {{- $.Scratch.Set "myLimit" 0 }}
-    {{- range $termName, $entries := .Site.Taxonomies.tags }}
-    {{- $.Scratch.Set "myLimit" (add ($.Scratch.Get "myLimit") 1) }}
-    {{- if le ($.Scratch.Get "myLimit") ($.Site.Param `tagslimit`) }}
+    {{- range first .Site.Params.tagsLimit .Site.Taxonomies.tags.ByCount }}
     <!-- <a class="panel__tag" role="button" href="{{ .Page.RelPermalink }}">
       {{ .Page.Title | humanize | title }}
     </a> -->
     <a class="btn btn-dark me-1 mb-2" role="button" href="{{ .Page.RelPermalink }}">
-      {{ .Page.Title | humanize | title }}
+      {{ .Page.Title | humanize | title }} ({{ .Count }})
     </a>
-    {{- end }}
     {{- end }}
   </div>
 </div>

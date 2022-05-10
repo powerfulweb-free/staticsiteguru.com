@@ -1,10 +1,10 @@
 {{ if .Site.Taxonomies.categories }}
 <div class="panel">
   <h3 class="panel__heading">Categories</h3>
-  {{ range .Site.Taxonomies.categories }} 
+  {{ range .Site.Taxonomies.categories.ByCount }} 
   <a class="panel__link"href="{{ .Page.RelPermalink  }}">
   <div class="panel__block">  
-    <span class="panel__text">{{ .Page.Title | humanize | title }}</span>
+    <span class="panel__text">{{ .Page.Title | humanize | title }} ({{ .Count }})</span>
   </div></a>
   {{ end }}
 </div>

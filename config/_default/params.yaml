@@ -5,7 +5,7 @@ description: "Up to date news and tips for using Hugo and other static site tool
 archive_dropdown: true
 
 # Number of tags to be displayed.
-tagsLimit: 20
+tagsLimit: 10
 
 # Dark mode by default : dark
 # Light mode by default : light
